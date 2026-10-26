@@ -1,0 +1,5 @@
+ticker,date_from,date_to,action,factor,reason
+NIFTYBEES.NS,2019-12-19,2019-12-20,drop_row,,Two prints at one tenth of the price (1:10 split mixed into history); neighbours are about 129
+TRENT.NS,2026-01-01,2026-01-01,scale_before,0.6666666667,1:2 bonus (ex-date 4 Jun 2026) applied by Yahoo only from 1 Jan 2026; shows a fake -33% day on a flat market
+ADANIENT.NS,2015-06-03,2015-06-03,flat_return,,Demerger ex-date (ports and power shares handed to holders); price drop is not a loss
+TMPV.NS,2025-10-14,2025-10-14,flat_return,,Tata Motors demerger ex-date (commercial vehicles business split off); price drop is not a loss
