@@ -3,6 +3,6 @@ __pycache__/
 .pytest_cache/
 data/raw/
 data/processed/
-data/*.duckdb
-data/*.duckdb.wal
+data/*.duckdb*
+tableau/
 .DS_Store

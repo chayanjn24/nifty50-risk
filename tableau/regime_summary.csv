@@ -1,3 +1,0 @@
-regime,days,stocks,avg_pairwise_corr,index_ann_vol,index_ann_ret
-Calm,2596,44,0.1919,0.1172,0.1469
-Stressed,310,44,0.4932,0.3598,-0.29
