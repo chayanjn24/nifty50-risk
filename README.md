@@ -2,7 +2,7 @@
 
 How risky are India's 50 largest stocks, what changes when markets get stressed, and do simple strategies or smarter portfolio weights beat holding the index after costs? I used ten years of daily prices, DuckDB SQL for the risk metrics and Python for the models. Every strategy result is out of sample.
 
-**[Dashboard on Tableau Public](https://public.tableau.com/app/profile/chayan.gulgulia/viz/Nifty50RiskRegimesandBacktests/Strategies)**
+**[Dashboard on Tableau Public](https://public.tableau.com/app/profile/chayan.gulgulia/viz/Nifty50RiskRegimesandBacktests/Strategies)** · **[Case study](https://chayangulgulia.vercel.app/work/nifty-risk)**
 
 ![Growth of ₹1 since 2017](images/growth.png)
 
