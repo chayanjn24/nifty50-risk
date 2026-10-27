@@ -13,8 +13,8 @@ Strategies run from Jan 2017 to Oct 2026, after 10 bps trading costs.
 - **Trend timing lost to buy-and-hold.** The 50/200-day moving average rule made 6.6% a year against 12.4% for the Nifty 50 ETF (Sharpe 0.10 vs 0.48). Re-picking the best moving-average pair every year did no better (6.8%).
 - **Diversification fades when it is needed most.** Average correlation between stocks is 0.19 in calm markets and 0.49 in stressed ones. Stressed days are 10.7% of the sample, with three times the daily volatility.
 - **Momentum's edge was survivorship bias.** Buying last year's 10 best stocks returned 25.6% a year, but an equal-weight basket of the same 50 stocks returned 21.9% with a slightly higher Sharpe. Momentum came out ahead in only 45% of bootstrap resamples.
-- **Risk-based weights cut losses, not returns.** HRP lowered the worst drawdown from -37.9% to -32.6% against equal weight, at the same Sharpe. In stressed markets it lost 11.9% a year against 16.8%.
-- **Only GARCH VaR passed both backtests at 99%.** Historical and normal VaR breaches came in clusters. GARCH-t had 36 breaches against 26.6 expected (Kupiec p = 0.08, Christoffersen p = 0.51).
+- **Risk-based weights cut losses, not returns.** HRP lowered the worst drawdown from -37.9% to -32.6% against equal weight, at a similar Sharpe (0.88 against 0.93). In stressed markets it lost 11.9% a year against 16.8%.
+- **For the index, only GARCH VaR passed both backtests at 99%.** Historical and normal VaR breaches came in clusters. GARCH-t had 36 breaches against 26.6 expected (Kupiec p = 0.08, Christoffersen p = 0.51). On the equal-weight basket it breached too often (39, p = 0.02), and plain historical VaR passed both.
 
 ![Sharpe ratios with bootstrap ranges](images/sharpe_ranges.png)
 
@@ -39,6 +39,14 @@ The regime filter, which steps out of the market when the model sees stress, avo
 
 The 10 clusters mostly follow NSE sectors, with a few differences: "Financial Services" splits into private banks with Bajaj, insurers, and BSE with the newer names, and PSU energy and power companies group together.
 
+## Dashboard
+
+Two tabs on [Tableau Public](https://public.tableau.com/app/profile/chayan.gulgulia/viz/Nifty50RiskRegimesandBacktests/Strategies): strategies and regimes, and risk for each stock. Filters for strategy, sector, cluster, beta and volatility, and the charts highlight together when you hover or click.
+
+![Strategies tab](images/dashboard_strategies.png)
+
+![Stock risk tab](images/dashboard_stocks.png)
+
 ## Data
 
 - **Stocks:** today's 50 Nifty 50 members from NSE's [constituent list](https://nsearchives.nseindia.com/content/indices/ind_nifty50list.csv).
@@ -61,16 +69,6 @@ I checked every daily move over 18% against news. Most were real (March 2020, th
 2. **Risk models** ([`nifty/risk.py`](nifty/risk.py)): CAPM beta for each stock, correlation clusters, a two-state Markov switching model for calm and stressed markets, and one-day VaR three ways (historical, normal, GARCH-t), backtested with Kupiec and Christoffersen tests.
 3. **Strategies and portfolios** ([`nifty/strategies.py`](nifty/strategies.py)): moving-average timing, 12-1 momentum, a regime filter, and five portfolio weightings (equal weight, inverse volatility, minimum variance, risk parity, HRP). Trades use only data up to the previous close; portfolio weights use only the past year.
 4. **Is it luck?** A block bootstrap (2,000 resamples) gives a range for every Sharpe and for each gap between strategies. Parameter grids are shown as ranges, not picked for the headline.
-
-```
-nifty50-risk/
-├── run.py              runs everything
-├── sql/                cleaning and risk metrics (DuckDB)
-├── nifty/              data, risk, strategies, report
-├── tests/              checks on the maths and the data
-├── data/price_fixes.csv
-└── images/
-```
 
 ## Run it
 
