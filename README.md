@@ -41,7 +41,7 @@ The 10 clusters mostly follow NSE sectors, with a few differences: "Financial Se
 
 ## Dashboard
 
-Two tabs on [Tableau Public](https://public.tableau.com/app/profile/chayan.gulgulia/viz/Nifty50RiskRegimesandBacktests/Strategies): strategies and regimes, and risk for each stock. Filters for strategy, sector, cluster, beta and volatility, and the charts highlight together when you hover or click.
+Two tabs on [Tableau Public](https://public.tableau.com/app/profile/chayan.gulgulia/viz/Nifty50RiskRegimesandBacktests/Strategies): strategies and regimes, and risk for each stock. Pick a strategy, group, sector or cluster, or drag the date, beta and volatility sliders (the index and ETF always stay on for comparison), and the charts highlight together when you hover or click.
 
 ![Strategies tab](images/dashboard_strategies.png)
 
